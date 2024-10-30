@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultorios - Sistema de Citas Médicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Consultorios</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultorios.html">Consultorios</a></li>
+                <li><a href="especialidades.html">Especialidades</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Administrar Consultorios</h2>
+
+        <!-- Formulario para agregar/editar consultorios -->
+        <section class="form-section">
+            <h3>Agregar o Editar Consultorio</h3>
+            <form id="formConsultorio">
+                <label for="id">ID Consultorio:</label>
+                <input type="text" id="id" name="id" required>
+                
+                <label for="nombre">Nombre del Consultorio:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" required>
+                
+                <button type="submit">Guardar</button>
+                <button type="button" id="cancelar-edicion">Cancelar</button>
+            </form>
+        </section>
+
+        <!-- Tabla para mostrar los consultorios -->
+        <section class="table-section">
+            <h3>Lista de Consultorios</h3>
+            <table id="tablaConsultorios">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Ubicación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Consultorios se agregan dinámicamente aquí -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sistema de Citas Médicas - 2024</p>
+    </footer>
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="style.css"></script>
+</body>
+</html>

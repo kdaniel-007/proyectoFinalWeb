@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Sistema de Citas Médicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Configuración del Sistema</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultorios.html">Consultorios</a></li>
+                <li><a href="especialidades.html">Especialidades</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="configuracion">
+            <h2>Configuración de la Clínica</h2>
+            <form id="formConfiguracion">
+                <table>
+                    <tr>
+                        <td><label for="nombreClinica">Nombre de la Clínica:</label></td>
+                        <td><input type="text" id="nombreClinica" name="nombreClinica" placeholder="Ingrese el nombre de la clínica"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="logoClinica">Logo de la Clínica:</label></td>
+                        <td><input type="file" id="logoClinica" name="logoClinica"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="zonaHoraria">Zona Horaria:</label></td>
+                        <td>
+                            <select id="zonaHoraria" name="zonaHoraria">
+                                <option value="UTC-5">UTC-5 (Bogotá, Lima)</option>
+                                <option value="UTC-6" selected>UTC-6 (El Salvador, México)</option>
+                                <!-- Puedes agregar más zonas horarias aquí -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit">Guardar Cambios</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sistema de Citas Médicas - 2024</p>
+    </footer>
+
+    <script src="jquery.js"></script>
+    <script src="configuracion.js"></script>
+</body>
+</html>

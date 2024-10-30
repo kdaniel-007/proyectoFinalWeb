@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades - Sistema de Citas Médicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Especialidades Médicas</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="citas.html">Citas</a></li>
+                <li><a href="medicos.html">Médicos</a></li>
+                <li><a href="pacientes.html">Pacientes</a></li>
+                <li><a href="consultorios.html">Consultorios</a></li>
+                <li><a href="especialidades.html">Especialidades</a></li>
+                <li><a href="reportes.html">Reportes</a></li>
+                <li><a href="configuracion.html">Configuración</a></li>
+                <li><a href="usuarios.html">Usuarios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="especialidades">
+            <h2>Gestión de Especialidades</h2>
+            <button id="agregarEspecialidad">Agregar Especialidad</button>
+
+            <!-- Tabla para listar especialidades -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Especialidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="listaEspecialidades">
+                    <!-- Aquí se cargarán las especialidades desde el script -->
+                </tbody>
+            </table>
+
+            <!-- Formulario de agregar/editar especialidad -->
+            <div id="formEspecialidad" style="display:none; margin-top: 20px;">
+                <h3 id="formTitulo">Agregar Especialidad</h3>
+                <form>
+                    <table>
+                        <tr>
+                            <td><label for="nombreEspecialidad">Nombre de la Especialidad:</label></td>
+                            <td><input type="text" id="nombreEspecialidad" name="nombreEspecialidad" placeholder="Ingrese especialidad"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" id="guardarEspecialidad">Guardar</button>
+                                <button type="button" id="cancelarEspecialidad">Cancelar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sistema de Citas Médicas - 2024</p>
+    </footer>
+
+    <script src="jquery.js"></script>
+    <script src="especialidades.js"></script>
+</body>
+</html>

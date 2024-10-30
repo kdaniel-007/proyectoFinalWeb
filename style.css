@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-item {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 30%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 2px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], button {
+    padding: 10px;
+    margin: 5px;
+    width: calc(100% - 20px);
+}
+
+/* para configuraciones */
+#formConfiguracion button[type="submit"] {
+    width: 200px;
+    display: block;
+    margin: 20px auto; 
+    padding: 10px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#formConfiguracion button[type="submit"]:hover {
+    background-color: #218838; 
+}
+
+/* para especialidades */
+
+#formEspecialidad button {
+    width: 150px; 
+    display: inline-block; 
+    margin: 10px 5px; 
+    padding: 10px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#formEspecialidad button:hover {
+    background-color: #218838; 
+}
+
+#agregarEspecialidad {
+    width: 200px;
+    margin: 20px auto;
+    display: block; 
+    background-color: #4CAF50;
+    padding: 10px;
+    font-size: 16px;
+}
