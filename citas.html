@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Administración de Citas</h1>
+        <h1>Gestión de Citas</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -23,43 +23,130 @@
             </ul>
         </nav>
     </header>
+    <h2>Listado de Citas</h2>
+    <form id="formCita">
+        <label for="medico">Médico:</label>
+        <input type="text" id="medico" name="medico" required>
+        
+        <label for="paciente">Paciente:</label>
+        <input type="text" id="paciente" name="paciente" required>
+        
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+        
+        <label for="consultorio">Consultorio:</label>
+        <select id="consultorio" name="consultorio" required>
+            <option value="">Seleccione un consultorio</option>
+        </select>
+        
+        <button type="button" id="submitButton" onclick="agregarCita()">Agregar Cita</button>
+    </form>
+    <table id="tablaCitas">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Médico</th>
+                <th>Paciente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Consultorio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Dr. Pérez</td>
+                <td>Juan López</td>
+                <td>2024-10-20</td>
+                <td>10:00</td>
+                <td>Consultorio 1</td>
+                <td><button onclick="editarCita(this)">Editar</button> <button onclick="eliminarCita(this)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let idCounter = 2;
+        let editando = false;
+        let filaEditando = null;
+        const consultorios = [
+            { id: 1, nombre: 'Consultorio 1', ubicacion: 'Planta Baja' },
+            { id: 2, nombre: 'Consultorio 2', ubicacion: 'Primer Piso' }
+            // Agrega más consultorios según sea necesario
+        ];
 
-    <main>
-        <section class="citas">
-            <h2>Listado de Citas</h2>
-            <button id="agregarCita">Agregar Cita</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Médico</th>
-                        <th>Paciente</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Dr. Pérez</td>
-                        <td>Juan López</td>
-                        <td>2024-10-20</td>
-                        <td>10:00</td>
-                        <td>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectConsultorio = document.getElementById('consultorio');
+            consultorios.forEach(consultorio => {
+                const option = document.createElement('option');
+                option.value = consultorio.nombre;
+                option.textContent = `${consultorio.nombre} - ${consultorio.ubicacion}`;
+                selectConsultorio.appendChild(option);
+            });
+        });
 
+        function agregarCita() {
+            const form = document.getElementById('formCita');
+            const tabla = document.getElementById('tablaCitas').getElementsByTagName('tbody')[0];
+
+            if (editando) {
+                filaEditando.cells[1].innerHTML = form.medico.value;
+                filaEditando.cells[2].innerHTML = form.paciente.value;
+                filaEditando.cells[3].innerHTML = form.fecha.value;
+                filaEditando.cells[4].innerHTML = form.hora.value;
+                filaEditando.cells[5].innerHTML = form.consultorio.value;
+                document.getElementById('submitButton').textContent = 'Agregar Cita';
+                editando = false;
+                filaEditando = null;
+            } else {
+                const nuevaFila = tabla.insertRow();
+                
+                const celdaID = nuevaFila.insertCell(0);
+                const celdaMedico = nuevaFila.insertCell(1);
+                const celdaPaciente = nuevaFila.insertCell(2);
+                const celdaFecha = nuevaFila.insertCell(3);
+                const celdaHora = nuevaFila.insertCell(4);
+                const celdaConsultorio = nuevaFila.insertCell(5);
+                const celdaAcciones = nuevaFila.insertCell(6);
+
+                celdaID.innerHTML = idCounter++;
+                celdaMedico.innerHTML = form.medico.value;
+                celdaPaciente.innerHTML = form.paciente.value;
+                celdaFecha.innerHTML = form.fecha.value;
+                celdaHora.innerHTML = form.hora.value;
+                celdaConsultorio.innerHTML = form.consultorio.value;
+                celdaAcciones.innerHTML = '<button onclick="editarCita(this)">Editar</button> <button onclick="eliminarCita(this)">Eliminar</button>';
+            }
+
+            form.reset();
+        }
+
+        function editarCita(boton) {
+            const fila = boton.parentNode.parentNode;
+            const form = document.getElementById('formCita');
+            form.medico.value = fila.cells[1].innerHTML;
+            form.paciente.value = fila.cells[2].innerHTML;
+            form.fecha.value = fila.cells[3].innerHTML;
+            form.hora.value = fila.cells[4].innerHTML;
+            form.consultorio.value = fila.cells[5].innerHTML;
+
+            document.getElementById('submitButton').textContent = 'Guardar Cambios';
+            editando = true;
+            filaEditando = fila;
+        }
+
+        function eliminarCita(boton) {
+            const fila = boton.parentNode.parentNode;
+            fila.parentNode.removeChild(fila);
+        }
+    </script>
     <footer>
         <p>Sistema de Citas Médicas - 2024</p>
     </footer>
-
+        
     <script src="jquery.js"></script>
     <script src="script.js"></script>
 </body>
